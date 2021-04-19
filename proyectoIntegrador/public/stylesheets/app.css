@@ -68,7 +68,16 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(129, 57, 57);
+}
+
+.logo{
+  width: 120px;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: white;
+  margin-left: 10px;
+  
 }
 
 .main-header_home-link,
@@ -154,7 +163,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/products/chocolateOferta.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

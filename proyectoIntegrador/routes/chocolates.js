@@ -7,6 +7,7 @@ let chocolateController = require('../controllers/chocolateController');
 
 router.get ('/', chocolateController.index);
 router.get ('/detalle', chocolateController.show);
+router.get ('/create', chocolateController.create);
 
 
 module.exports = router;
