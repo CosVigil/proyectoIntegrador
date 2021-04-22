@@ -12,7 +12,10 @@ const registerController = {
     
         create: function (req, res){
             return res.render('product-add')
-        }
+        },
+        login: function (req, res){
+            return res.render('login')
+        },
     }
     
 
