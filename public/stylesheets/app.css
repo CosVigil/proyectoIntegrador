@@ -1,6 +1,8 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2? family = Orelega + One & display = swap');
+@import url('https://fonts.googleapis.com/css2? family = Lora: wght @ 700 & display = swap');
+@import url('https://fonts.googleapis.com/css2? family = Original + Surfer & display = swap');
 
 /*====== Variables ======*/
 :root {
@@ -10,7 +12,10 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: 'Roboto', sans-seri !important;
+  --base-font-family:'Orelega One', cursiva !important;
+  --base-font-family:'Lora', serif !important;
+  --base-font-family:'Original Surfer', cursiva !important;
 }
 
 
@@ -24,6 +29,8 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
+ 
+
 }
 
 body {
@@ -80,6 +87,12 @@ hr {
   
 }
 
+.titulo{
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
@@ -105,6 +118,7 @@ hr {
   border-radius: 3px;
   height: 40px;
   font-size: 1.5em;
+
 }
 
 .search-form_button {
@@ -181,6 +195,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  
 }
 
 .product-box {
@@ -205,12 +220,14 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  --base-font-family:'Orelega One', cursiva;
 }
 
 .product-box_data h2 {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  
 }
 
 .product-box_data span {
@@ -218,6 +235,7 @@ hr {
   font-weight: 300;
   color: var(--green);
   margin: 0 0 0 10px;
+  --base-font-family:'Lora', serif !important;
 }
 
 .product-box_data p {
@@ -228,6 +246,7 @@ hr {
   height: 0;
   transition: 300ms;
   overflow: hidden;
+ 
 }
 
 .product-box_data i {

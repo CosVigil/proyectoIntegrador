@@ -1,9 +1,8 @@
 const catalogo = require('../catalogo/index');
 
-
-const registerController = {
+const loginController = {
     index: function (req, res){
-        	return res.render('register', {producto: catalogo.lista})
+        	return res.render('login', {producto: catalogo.lista})
         },
         show: function (req, res){
             let id = req.params.id;
@@ -21,4 +20,4 @@ const registerController = {
     
 
 
-module.exports = registerController;
+module.exports = loginController;
