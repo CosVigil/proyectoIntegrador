@@ -1,9 +1,7 @@
-const catalogo = require('../catalogo/index');
-
 
 const registerController = {
     index: function (req, res){
-        	return res.render('register', {producto: catalogo.lista})
+        	return res.render('register')
         },
         show: function (req, res){
             let id = req.params.id;

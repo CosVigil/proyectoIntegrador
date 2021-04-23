@@ -1,8 +1,7 @@
-const catalogo = require('../catalogo/index');
 
 const chocolateController = {
     index: function(req, res){
-        return res.render('product', {producto: catalogo.lista})
+        return res.render('product')
     },
     show: function (req, res){
         let id = req.params.id;
