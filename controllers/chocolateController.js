@@ -12,6 +12,10 @@ const chocolateController = {
 
     create: function (req, res){
         return res.render('product-add')
+    },
+
+    search: function (req, res){
+        return res.render('search-results')
     }
 }
 
