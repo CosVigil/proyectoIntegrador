@@ -287,7 +287,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: #813939;
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -554,5 +554,8 @@ textarea.form-input {
   .footer-data {
     width: 95%;
     margin: auto;
+
   }
+
+ 
 }
