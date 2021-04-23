@@ -1,15 +1,10 @@
 const usersController = {
     profile: function (req, res){
-        return res.render('profile', {title:''})
+        return res.render('profile')
     },
-    register: function (req, res){
-        return res.render('register', {title:''})
-     },
-     login: function (req, res){
-        return res.render('login', {title:''})
-     },
+   
      profileEdit: function (req, res){
-        return res.render('profile-edit', {title:''})
+        return res.render('profile-edit')
      }
 
 }

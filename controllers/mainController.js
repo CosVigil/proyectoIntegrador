@@ -1,5 +1,4 @@
 
-
 let mainController = {
     index: function (req, res){
         return res.render('index')
@@ -7,7 +6,6 @@ let mainController = {
    
 
 }
-
 
 
 module.exports = mainController;
