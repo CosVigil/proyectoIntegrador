@@ -1,8 +1,8 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2? family = Orelega + One & display = swap');
-@import url('https://fonts.googleapis.com/css2? family = Lora: wght @ 700 & display = swap');
-@import url('https://fonts.googleapis.com/css2? family = Original + Surfer & display = swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
 
 /*====== Variables ======*/
 :root {
@@ -12,10 +12,10 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-seri !important;
-  --base-font-family:'Orelega One', cursiva !important;
-  --base-font-family:'Lora', serif !important;
-  --base-font-family:'Original Surfer', cursiva !important;
+  --base-font-family1: 'Roboto', sans-serif !important;
+  --base-font-family2:'Orelega One', cursiva !important;
+  --base-font-family3:'Lora', serif !important;
+  --base-font-family4:'Original Surfer', cursive !important;
 }
 
 
@@ -29,12 +29,9 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
- 
-
+  font-family: var(--base-font-family1);
 }
-
 body {
-  font-family: var(--base-font-family);
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -90,7 +87,8 @@ hr {
 .titulo{
   font-weight: bold;
   font-size: 25px;
-  text-align: center;
+  text-align: right;
+  font-family: var(--base-font-family4);
 }
 
 .main-header_home-link,
@@ -150,6 +148,10 @@ hr {
   display: none;
 }
 
+.main-navbar a {
+  font-family: var(--base-font-family3);
+}
+
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
@@ -195,7 +197,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
-  
+  --base-font-family:'Orelega One', cursiva !important;
 }
 
 .product-box {
