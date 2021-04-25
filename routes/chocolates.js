@@ -3,7 +3,7 @@ var router = express.Router();
 
 let chocolateController = require('../controllers/chocolateController');
 
-//buscador -> localhost:3000/chocolates/detalle
+//buscador -> localhost:3000/chocolates/create
 
 router.get ('/', chocolateController.index);
 router.get ('/create', chocolateController.create);
