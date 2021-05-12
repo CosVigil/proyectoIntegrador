@@ -33,16 +33,20 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/chocolates">
-						<figure class="product-box_image">
-							<img src="/images/products/chocolateDDL.jpg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Chocolate con dulce de leche</h2>
-							<p>Chocolate Milka Relleno Dulce De Leche 135 g</p>
-							<p>Comentarios: 7</p>
-						</article>
-					</a>
+					
+    <ul>
+		<% for(let i=0; i<products.length; i++){ %>
+		  <li>
+			<a href="/products/id/<%= products[i].id%>"><%= products[i].productName %>
+				<figure class="product-box_image">
+					<img src="/images/id/<%= products[i].id %>" alt="cafetera moulinex"><%= products[i].image %>
+				</figure>
+			
+			</a> 
+			
+		  </li>
+		<% } %> 
+	  </ul>
 				</section>
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
