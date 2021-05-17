@@ -1,3 +1,5 @@
+const db = require('../db');
+const op = db.Sequelize.Op;
 
 const chocolateController = {
     index: function(req, res){
@@ -9,7 +11,15 @@ const chocolateController = {
     },
 
     search: function (req, res){
-        return res.render('search-results')
+        let query = req.query;
+        return res.send(query.search);
+        //return res.render('search-results')
+
+        db.search.findAll()
+        .then()
+        .catch(error => {
+            console.error();
+        })
     }
 }
 
