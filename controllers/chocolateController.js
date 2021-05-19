@@ -1,4 +1,4 @@
-const db = require('../db');
+const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 const chocolateController = {
@@ -11,17 +11,15 @@ const chocolateController = {
     },
 
     search: function (req, res){
-        let infoABuscar = req.query;
-        return res.send(query.search);
-        //return res.render('search-results')
+        let data = req.query.search;
 
-        db.search.findAll({
+        db.Product.findAll({
             where: [
-                {title: {[op.like]: '%'+infoABuscar+'%'}}
+                {productName: {[op.like]: '%'+data+'%'}}
             
         ]})
         .then(data => {
-            return res.render(data);
+            return res.render('index', {products: data});
         })
         .catch(error => {
             console.log(error);
@@ -34,28 +32,30 @@ const chocolateController = {
     store: function(req, res){
         //metodo para guardar nuevo producto
         //1)obtener datos del formulario
-        let data = req.body;
-        return res.send(data);
+        let datas = req.body;
+        //return res.send(datas);
 
         //2)crear nuevo producto
         let chocolate = {
-            title: data.title,
-            rating: data.rating,
-            awards: data.awards,
-            release_date: data.release_date,
-            length: data.length,
-            genre_id: data.genre_id,
+            productName: datas.productName,
+            image: datas.image,
+            descripción: datas.descripción,
+            userId: datas.userId,
         }
+
+       
+
         //3)guardar producto
-        db.chocolate.create(chocolate)
+        db.Product.create(chocolate)
         .then (chocolate =>{
+       //4)redireccion
             return res.redirect('/');
         })
         .catch(error => {
             console.log(error);
         })
 
-        //4)redireccion
+        
     }
 }
 
