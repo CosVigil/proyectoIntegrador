@@ -1,4 +1,6 @@
-{
+//REnombrar con extensión .js y cargar credenciales de acceso a db en development
+
+module.exports = {
   "development": {
     "username": "root",
     "password": null,
