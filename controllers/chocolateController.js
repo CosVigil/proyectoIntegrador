@@ -6,8 +6,16 @@ const chocolateController = {
         return res.render('product')
     },
  
-    create: function (req, res){
-        return res.render('product-add')
+    show: function (req, res){
+        let id = req.params.id;
+
+        db.Product.findByPk(id)
+          .then(data => {
+              return res.render('product', { product:data } )
+          })
+          .catch(error =>{
+              console.log(error);
+          })
     },
 
     search: function (req, res){
@@ -56,7 +64,47 @@ const chocolateController = {
         })
 
         
+    },
+
+    new: function(req, res){
+    //mostrará los últimos productos agregados de forma descendente
+    db.Product.findAll({
+      order: ['comments', 'DESC'] 
+
+    })
+       .then(data =>{
+           //procesamos resultados
+           return res.render('new', { product: data})
+          
+       })
+       .catch(error => {
+        console.log(error);
+    })
+    
+    },
+
+    destroy: function(req, res){
+       let chocolateABorrar = req.params.id;
+
+       db.Product.destroy({
+          where: [
+              {id: chocolateABorrar}
+              
+          ]
+       })
+         .then(() =>{
+             return res.redirect('/');
+         } )
+         .catch( error =>{
+            console.log(error);
+
+        })
+
     }
+
+    
+
+
 }
 
 module.exports = chocolateController;

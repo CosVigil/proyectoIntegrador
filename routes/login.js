@@ -5,6 +5,7 @@ const registerController = require('../controllers/loginController')
 
 router.get('/', registerController.login);
 
+
 module.exports = router;
 
 

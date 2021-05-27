@@ -20,19 +20,22 @@
 	<!-- /Header -->
 
 	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title">Chocolate Milka</h2> 
-			<p class="product-detail-description">
-				<a href="/chocolates/create">Editar</a>
-			</p>
-		</div>
+
+   
+
+	
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/chocolateDDL.jpg" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						Chocolate Milka Relleno Dulce De Leche 135 g. El más rico chocolate con dulce de leche. La mejor relación precio/calidad.</p>
+					
+					<p>Detalles del chocolate <%= product.productName  %> </p>
+					<figure class="product-box_image">
+						<img src="/images/products/<%= product.image %>" alt="cafetera moulinex">
+					</figure>
+					<form action="/chocolates/delete/<%= product.id %>"   method="POST">
+                        <button type="submit">Borrar Producto</button>
+					</form>
+					<button>Editar posteo</button>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
