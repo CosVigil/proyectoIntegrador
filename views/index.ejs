@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/products/logo.jpg"/>
-	
+	<link width="" rel="shortcut icon" href="/images/products/logo.jpg" />
+
 	<title> Chocolate el mejor</title>
-			<!-- Font Awesome Stylesheet -->
+	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/app.css">
 </head>
+
 <body>
-      
-	<%- include("./partials/header") %>  
-	
-	
+
+	<%- include("./partials/header") %>
+
+
 
 	<!-- Banner -->
 	<div class="banner">
@@ -28,7 +30,7 @@
 	<h2>Buscar chocolates</h2>
 	<form action="/chocolates/search" method="GET">
 		<input type="text" name="search" value="" placeholder="Buscar...">
-		 <button type="submit">Buscar</button>
+		<button type="submit">Buscar</button>
 	</form>
 	<!-- /Banner -->
 
@@ -43,25 +45,22 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					
-    <ul>
-		<% for(let i=0; i<products.length; i++){ %>
-		  <li>
-			<a href="/chocolates/id/<%= products[i].id%>"><%= products[i].productName %>
-				<figure class="product-box_image">
-					<img src="/images/products/<%= products[i].image %>" alt="cafetera moulinex">
-				</figure>
-			
-			</a> 
-			
-		  </li>
-		<% } %> 
-	  </ul>
+					<% for(let i=0; i<products.length; i++){ %>
+					<a href="/chocolates/id/<%= products[i].id%>">
+						<figure class="product-box_image">
+							<img src="/images/products/<%= products[i].image %>" alt="">
+						</figure>
+						<article class="product-box_data">
+							<h2><%= products[i].productName %></h2>
+						</article>
+					</a>
+					<% } %>
+
 				</section>
 			</div>
-			
-			
-			
+
+
+
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -72,14 +71,15 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			
+
 		</div>
 	</div>
 	<!-- /Más comentados -->
 
 
 	<!-- footer -->
-	<%- include("./partials/footer") %> 
+	<%- include("./partials/footer") %>
 	<!-- /footer -->
-</body>	
+</body>
+
 </html>
