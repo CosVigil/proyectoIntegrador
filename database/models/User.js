@@ -43,6 +43,13 @@ let config ={
 
 const User = sequelize.define(alias, cols, config);
 
+User.associate = function(models){
+    User.hasMany(models.Product,{
+        as:'products',
+        foreignKey: 'userId'
+    })
+}
+
 return User;
 
 

@@ -38,6 +38,15 @@ let config ={
 
 const Comment = sequelize.define(alias, cols, config);
 
+Comment.associate = function(models){
+    Comment.belongsTo(models.Product,{
+        as: 'product',
+        foreignKey: 'productId'
+    } )
+
+    
+}
+
 return Comment;
 
 
