@@ -41,7 +41,16 @@ const chocolateController = {
     },
     create: function(req, res){
         //mostrar formulario de carga de nuevos chocolates
-        return res.render('product-add')
+        //return res.render('product-add')
+
+            //Mostrar formulario de carga de películas
+            db.User.findAll()
+                .then( data => {
+                    return res.render('product-add', {users:data});
+                })
+                .catch(error => {
+                    console.log(error);
+                })
     },
     store: function(req, res){
         //metodo para guardar nuevo producto
