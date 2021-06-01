@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session'); //Instalamos session.
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const chocolatesRouter = require ('./routes/chocolates');
@@ -23,12 +25,53 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session(
+  { secret:'PaginaDeChocolates',
+    resave: false,
+    saveUninitialized: true }
+));
+
+// Antes de las rutas. Dejar disponible datos de sessión para todas las vistas
+app.use(function(req, res, next){
+  console.log('En session middleware');
+  console.log(req.session.user);
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user;
+    console.log("entre en locals: ");
+    console.log(res.locals);
+    return next();
+  } 
+  return next(); //Clave para que el proceso siga adelante.  
+})
+
+//Gestionar la coockie.
+app.use(function(req, res, next){
+  //Solo quiero hacerlo si tengo una coockie
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    let idDeLaCookie = req.cookies.userId;
+    
+    db.User.findByPk(idDeLaCookie)
+    .then( user => {
+      console.log('en cookie middleware trasladando');
+      req.session.user = user; //Estamos poniendo en session a toda la instancia del modelo. Debería ser solo user.dataValues.
+      console.log('en cookie middleware');
+      console.log(req.session.user);
+      res.locals.user = user; //Se corrije si usamos user.dataValues
+      return next();
+    })
+    .catch( e => {console.log(e)})
+  } else {
+    //Si no tengo cookie quiero que el programa continue
+    return next();
+  }
+
+})
+
 app.use('/', indexRouter);
 app.use('/chocolates', chocolatesRouter);
 app.use('/register', registerRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
