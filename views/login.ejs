@@ -22,27 +22,25 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-
-			<form action="/">    
-              <div>
-				  <input type="text" name="email" value="" placeholder="email">
-
-
-			  </div>
-			  <div>
-				<input type="password" name="password" value="" placeholder="password">
-			  </div>
-			  <button type="submit"> 
-				  Ingresar
-			  </button>
-			</form>
+    <h1>Ingresar</h1>
+    <a href="/">Home</a>
+    <a href="/register">Registrate</a>
+    <% if(locals.errors){ %>
+        <p class="error"><%= locals.errors.message %> </p>
+    <% } %>  
+    <form action="/login" method="POST">
+        <p>
+            <input type="text" name="email" value="" placeholder="email">
+        </p>
+        <p>
+            <input type="password" name="password" value="" placeholder="contraseña">
+        </p>
+        <p>
+            <input type="checkbox" name="rememberme" value="ok">
+            Recordame
+        </p>
+        <button type="submit"> Ingresar </button>
+    </form>
 
 
 	<!-- footer -->

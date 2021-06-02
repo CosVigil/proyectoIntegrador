@@ -40,10 +40,18 @@ const chocolateController = {
         })
     },
     create: function(req, res){
+        //control de acceso
+         
+        if(req.session.user ==undefined){
+            return res.redirect("/register");
+        } else{
+           
+        }
+
         //mostrar formulario de carga de nuevos chocolates
         //return res.render('product-add')
 
-            //Mostrar formulario de carga de películas
+            
             db.User.findAll()
                 .then( data => {
                     return res.render('product-add', {users:data});
@@ -51,6 +59,8 @@ const chocolateController = {
                 .catch(error => {
                     console.log(error);
                 })
+
+
     },
     store: function(req, res){
         //metodo para guardar nuevo producto
@@ -77,6 +87,8 @@ const chocolateController = {
         .catch(error => {
             console.log(error);
         })
+
+
 
         
     },

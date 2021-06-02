@@ -26,16 +26,35 @@
 	<div class="banner">
 		<img src="" alt="">
 	</div>
+
+	<% console.log('En la vista') %>
+    <% console.log(locals.nombre) %>
+
+    <% if(locals.user){ %>
+      <h2>Hola: <%= locals.user.nombre %> </h2>
+    <%}%>
+    
+    
+    <% if(locals.user){ %>
+      <form action="/login/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    <%} else {%>
+      <a href="/login">Ingresar</a>
+      <a href="/register">Registrate</a>
+    <%}%>
+
 	<!--BUSCADOR-->
 	<h2>Buscar chocolates</h2>
-	<form action="/chocolates/search" method="GET">
-		<input type="text" name="search" value="" placeholder="Buscar...">
+	<form action="/chocolates/search" method="GET" class="">
+		<input type="text" name="search" value="" placeholder="Buscar chocolates">
 		<button type="submit">Buscar</button>
 	</form>
 	<!-- /Banner -->
 
+<div class="nuevoCh">
 	<a href="/chocolates/create">Nuevo chocolate</a>
-
+</div>
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">

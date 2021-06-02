@@ -68,11 +68,19 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+.nuevoCh {
+  font-size: 30px;
+}
+
+.error{
+  color: red;
+}
+
 
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: rgb(129, 57, 57);
+  background-color: rgb(82 41 41);
 }
 
 .logo{
@@ -289,7 +297,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #813939;
+  background-color: rgb(82 41 41);
   padding: 20px 0;
   margin-top: 80px;
 }

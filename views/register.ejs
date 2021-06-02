@@ -21,41 +21,38 @@
 	<%- include("./partials/header") %> 
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Registrate</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-	
-			<form action="/" method="POST">    
-				<div>
-					<input type="text" name="nombre" value="" placeholder="Nombre de usuario">
-				</div>
-				<div>
-					<input type="text" name="apellido" value="" placeholder="Apellido">
-				</div>
-				<div>
-					<input type="int" name="dni" value="" placeholder="DNI">
-				</div>
-				<div>
-					<input type="text" name="email" value="" placeholder="email">
-				</div>
-				<div>
-					<input type="password" name="password" value="" placeholder="password">
-				  </div>
-				  
-				<div>
-					<input type="date" name="birthDate" value="" placeholder="Fecha de nacimiento">
-				</div>
-			
-			
-				
-				<button type="submit"> 
-					Registrar
-				</button>
-			  </form>
+	<H1>Registarte</H1>
+    <a href="/">Home</a>
+    <a href="/login">Ingresar</a>
+
+    <% if(locals.errors){ %>
+        <p class="error">
+            <%= locals.errors.message %>
+        </p>
+        <% } %>
+
+    <form action="/register" method="POST">
+		<div>
+			<input type="text" name="nombre" value="" placeholder="Nombre de usuario">
+		</div>
+		<div>
+			<input type="text" name="apellido" value="" placeholder="Apellido">
+		</div>
+		<div>
+			<input type="int" name="dni" value="" placeholder="DNI">
+		</div>
+		<div>
+			<input type="text" name="email" value="" placeholder="email">
+		</div>
+		<div>
+			<input type="password" name="password" value="" placeholder="password">
+		  </div>
+		  
+		<div>
+			<input type="date" name="birthDate" value="" placeholder="Fecha de nacimiento">
+		</div>
+        <button type="submit">Registrarme</button>
+    </form>
 
 
 	<!-- footer -->
