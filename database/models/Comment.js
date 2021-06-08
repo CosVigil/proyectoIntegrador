@@ -31,7 +31,7 @@ let cols = {
 
 let config ={
 
-    table: 'comments',
+    tableName: 'comments',
     timestamps: true,
 
 }

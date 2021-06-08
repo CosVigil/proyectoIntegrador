@@ -29,31 +29,25 @@ module.exports = function (sequelize, dataTypes){
 
 
     let config ={
-        table: 'products',
+        tableName: 'products',
         timestamps: true,
 
     }
 
     const Product = sequelize.define(alias, cols, config);
 
-    Product.associate = function(models){
-        Product.belongsTo(models.User,{
-            as: 'user',
-            foreignKey: 'userId'
-        } ),
+   
 
         Product.associate = function (models){
-            Product.hasMany(models.Comments, {
+            Product.hasMany(models.Comment, {
                 as:'comments',
                 foreignKey:'productId'
             }),
 
-        Product.belongsToMany(models, user, {
+        Product.belongsTo(models.User, {
             as: 'users',
-            through: 'product_user',
-            foreignKey: 'product_Id',
-            otherKey: 'comment_id',
-            timestamps: false,
+            foreignKey: 'userId',
+            
         })
         
 
@@ -62,4 +56,4 @@ module.exports = function (sequelize, dataTypes){
 
     return Product;
 
-}}
+}

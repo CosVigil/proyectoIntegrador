@@ -28,14 +28,14 @@
 	</div>
 
 	<% console.log('En la vista') %>
-    <% console.log(locals.nombre) %>
+    
 
 	<% if(locals.user){ %>
 		<img class= "avatar" src="../public/images/avatars/<%=user.avatar %>" alt="">
       <h2>Hola: <%= locals.user.nombre %> </h2>
     <%}%>
 	
-	% foto avatar %
+	
     
 	<% if(locals.user){ %>
 		<p><a href="/register/edit/<%=user.id%>">Editar perfil</a></p>

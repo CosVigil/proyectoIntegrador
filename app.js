@@ -1,8 +1,11 @@
+const db = require ('./database/models');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 
 const session = require('express-session'); //Instalamos session.
 

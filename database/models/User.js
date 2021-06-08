@@ -28,7 +28,10 @@ let cols = {
     birthDate:{
         type: dataTypes.DATE, 
     },
-    avatar: {type: dataTypes.STRING}
+    
+    avatar: {
+        type: dataTypes.STRING
+    }
  
 }
 

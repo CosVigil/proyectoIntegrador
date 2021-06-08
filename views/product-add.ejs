@@ -27,7 +27,8 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
-				<form action="/chocolates/store" method="POST"> 
+				<form action="/chocolates/store" method="POST" enctype="multipart/form-data"> 
+			
 					<input type="text" name="productName" value="" placeholder="productName">
 					<input type="file" name="image" value="" placeholder="image">
 					<input type="text"  name="descripción" value="" placeholder="descripción">	

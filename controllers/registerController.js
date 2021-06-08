@@ -104,7 +104,7 @@ let registerController = {
    update: function(req, res){
        //actualizar usuario
        let user= {
-           name: req.body.name,
+           nombre: req.body.nombre,
            email: req.body.email,
            password: '',
            avatar: '',
