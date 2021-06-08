@@ -22,6 +22,10 @@ let cols = {
     email:{
         type: dataTypes.STRING,
     },
+
+    userAvatar:{
+        type: dataTypes.STRING,
+    },
     password:{
         type: dataTypes.STRING,
     },
