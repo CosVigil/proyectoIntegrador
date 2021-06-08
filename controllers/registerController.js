@@ -2,6 +2,8 @@
 
 
 const bcrypt = require('bcryptjs');
+const { log } = require('debug');
+const e = require('express');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 const users = db.User;
@@ -35,7 +37,14 @@ let registerController = {
             errors.message = "Retype password es obligatorio";
             res.locals.errors = errors;
             return res.render('register')
+
             //Una vez que tenemos la información completa entonces podemos pasar a chequear con base de datos
+        } else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype
+        !== 'image/jpeg'){
+        errors.message = "El archivo debe ser jpg o png";
+        res.locals.error = errors;
+        return res.render('register')
+
         } else {
             //Buscamos un usaurio en base al email ingresado.
             users.findOne({
@@ -56,13 +65,15 @@ let registerController = {
                      dni:req.body.dni,
                      email: req.body.email,
                      password: bcrypt.hashSync(req.body.password, 10),
-                     birthDate:req.body.birthDate
-        }
-       users.create(user)
-       .then( user => {
-        return res.redirect('/login')
-       })
-       .catch(e => {console.log(e)});
+                     birthDate:req.body.birthDate,
+                     avatar: req.file.filename
+                    }
+
+                    users.create(user)
+                    .then( user => {
+                        return res.redirect('/login')
+                    })
+                    .catch(e => {console.log(e)});
 
     }
 
@@ -71,6 +82,58 @@ let registerController = {
 
       }
 
+   },
+   edit:function(req,res){
+         // mostrar formulario de edicion
+    let userId=req.params.userId;   
+        //evitar que el usuario cambie el id en la url
+    if(userId != req.session.user.id){
+        //redireccionar a la ruta del usuario logeado
+        return res.redirect(`/register/edit/${req.session.user.id}`)
+
+    }else{
+
+    db.user.findByPk()
+    .then (function(user){
+        return res.render('userEdit' , {userEdit: user})
+    })
+    .catch(e => {console.log(e)})
+
+   }},
+
+   update: function(req, res){
+       //actualizar usuario
+       let user= {
+           name: req.body.name,
+           email: req.body.email,
+           password: '',
+           avatar: '',
+       }
+       if (req.body.password ==''){
+           user.password = req.session.user.password;
+       } else {
+           user.password = bcryp.hashSync(req.body.password, 10);
+       }
+       if (req.file == undefined){
+           user.avatar= req.session.user.avatar;
+       } else {
+           user.avatar= req.file.filename;
+       }
+
+
+       db.user.update(user, {
+           where:{
+               id: req.session.user.id
+           }
+       })
+       .then(function(id){
+        //actualizar los datos de la session y redireccionar a la home
+
+        user.id = req.session.user.id;
+        req.session.user = user;
+        return redirect('/'); 
+       })
+       .catch(e =>{console.log(e)})
    }
 }
 

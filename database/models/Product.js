@@ -46,12 +46,20 @@ module.exports = function (sequelize, dataTypes){
             Product.hasMany(models.Comments, {
                 as:'comments',
                 foreignKey:'productId'
-            })
-        }
+            }),
+
+        Product.belongsToMany(models, user, {
+            as: 'users',
+            through: 'product_user',
+            foreignKey: 'product_Id',
+            otherKey: 'comment_id',
+            timestamps: false,
+        })
+        
 
         
     }
 
     return Product;
 
-}
+}}
