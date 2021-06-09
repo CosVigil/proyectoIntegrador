@@ -23,7 +23,7 @@ let cols = {
         type: dataTypes.STRING,
     },
 
-    userAvatar:{
+    avatar:{
         type: dataTypes.STRING,
     },
     password:{

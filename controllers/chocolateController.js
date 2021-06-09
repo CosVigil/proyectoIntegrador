@@ -75,7 +75,7 @@ const chocolateController = {
             descripción: datas.descripción,
             userId: datas.userId,
         }
-
+       //return res.send(req.body)
        
 
         //3)guardar producto

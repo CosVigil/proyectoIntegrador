@@ -2,8 +2,6 @@
 
 
 const bcrypt = require('bcryptjs');
-const { log } = require('debug');
-const e = require('express');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 const users = db.User;
@@ -32,12 +30,8 @@ let registerController = {
             errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             return res.render('register')
-         //Chequear que repetir contraseña no esté vacío   
-        } else if (req.body.retypePassword == ""){
-            errors.message = "Retype password es obligatorio";
-            res.locals.errors = errors;
-            return res.render('register')
-
+            
+        
             //Una vez que tenemos la información completa entonces podemos pasar a chequear con base de datos
         } else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype
         !== 'image/jpeg'){
@@ -83,7 +77,7 @@ let registerController = {
       }
 
    },
-   edit:function(req,res){
+   edit:function(req, res){
          // mostrar formulario de edicion
     let userId=req.params.userId;   
         //evitar que el usuario cambie el id en la url
@@ -129,7 +123,7 @@ let registerController = {
        .then(function(id){
         //actualizar los datos de la session y redireccionar a la home
 
-        user.id = req.session.user.id;
+        userId = req.session.user.id;
         req.session.user = user;
         return redirect('/'); 
        })
