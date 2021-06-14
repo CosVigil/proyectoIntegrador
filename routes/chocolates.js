@@ -29,7 +29,9 @@ router.get('/search', chocolateController.search);
 router.get('/create', chocolateController.create);
 router.post('/store', upload.single('image'), chocolateController.store);
 router.post('/delete/:id', chocolateController.destroy);
-router.get('/new', chocolateController.new);
+//router.get('/new', chocolateController.new);
+//router.get('/recomended', chocolateController.recomended);
+
 
 
 

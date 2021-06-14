@@ -12,6 +12,7 @@ const chocolateController = {
         db.Product.findByPk(id,{
             include : [
                 {association : 'user'},
+                //{association : 'comment'}
                 
             
             ]
@@ -93,7 +94,7 @@ const chocolateController = {
         
     },
 
-    new: function(req, res){
+    /*new: function(req, res){
     //mostrará los últimos productos agregados de forma descendente
     db.Product.findAll({
       order: ['comments', 'DESC'] 
@@ -108,7 +109,7 @@ const chocolateController = {
         console.log(error);
     })
     
-    },
+    },*/
 
     destroy: function(req, res){
        let chocolateABorrar = req.params.id;
@@ -127,10 +128,28 @@ const chocolateController = {
 
         })
 
-    }
+    },
+
+    /*recomended: function(req, res){
+        // Deberá mostrar las películas cuyo rating sea mayor o igual a 8. Cada título de película deberá ser un hipervínculo para ver el detalle de la misma.
+
+        db.Movie.findAll({
+            where: [
+                { rating: {[op.gte]: 8}}
+            ],
+            order:[
+                ['rating', 'DESC']
+            ]
+        })
+            .then(data =>{
+                return res.render('new', { movies : data, title: 'Recomendadas'})
+            })
+            .catch( error => {
+                console.log(error);
+            })
 
     
-
+ }*/
 
 }
 
