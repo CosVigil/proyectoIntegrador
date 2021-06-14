@@ -23,35 +23,42 @@
 	<%- include("./partials/headerLogueado.ejs")%>
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
+	<H1>Editar mis datos</H1>
+    <a href="/">Home</a>
+    <a href="/login">Ingresar</a>
 
-			<form action="">   
-				<div>
-					<input type="text" name="Nombre de usuario" value="" placeholder="Nombre de usuario">
-				</div>
-				<div>
-					<input type="text" name="email" value="" placeholder="email">
-				</div>
-				<div>
-					<input type="password" name="password" value="" placeholder="password">
-				  </div>
-				  <div>
-					<input type="DNI" name="DNI" value="" placeholder="DNI">
-				</div>
-				<div>
-					<input type="text" name="Fecha de nacimiento" value="" placeholder="Fecha de nacimiento">
-				</div>
-				<button type="submit"> 
-					Editar
-				</button>
-			  </form>
+    <% if(locals.errors){ %>
+        <p class="error">
+            <%= locals.errors.message %>
+        </p>
+        <% } %>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+		<div>
+			<input type="text" name="nombre"   placeholder="Nombre de usuario" value="<%= user.nombre %>">
+		</div>
+		<div>
+			<input type="text" name="apellido" value="" placeholder="Apellido">
+		</div>
+		<div>
+			<input type="int" name="dni" value="" placeholder="DNI">
+		</div>
+		<div>
+			<input type="text" name="email" value="<%= user.email %>" placeholder="email">
+		</div>
+		<div>
+			<input type="password" name="password" value="" placeholder="password">
+		  </div>
+		  
+		<div>
+			<input type="date" name="birthDate" value="" placeholder="Fecha de nacimiento">
+		</div>
+		<input type="file" name="avatar">
+		<div >
+
+		</div>
+        <button type="submit">Registrarme</button>
+    </form>
 
 
 	<!-- footer -->

@@ -87,7 +87,7 @@ let registerController = {
 
     }else{
 
-    db.user.findByPk()
+    db.User.findByPk(userId)
     .then (function(user){
         return res.render('userEdit' , {userEdit: user})
     })
@@ -106,7 +106,7 @@ let registerController = {
        if (req.body.password ==''){
            user.password = req.session.user.password;
        } else {
-           user.password = bcryp.hashSync(req.body.password, 10);
+           user.password = bcrypt.hashSync(req.body.password, 10);
        }
        if (req.file == undefined){
            user.avatar= req.session.user.avatar;
@@ -115,7 +115,7 @@ let registerController = {
        }
 
 
-       db.user.update(user, {
+       db.User.update(user, {
            where:{
                id: req.session.user.id
            }
@@ -123,9 +123,9 @@ let registerController = {
        .then(function(id){
         //actualizar los datos de la session y redireccionar a la home
 
-        userId = req.session.user.id;
+        user.id = req.session.user.id;
         req.session.user = user;
-        return redirect('/'); 
+        return res.redirect('/'); 
        })
        .catch(e =>{console.log(e)})
    }

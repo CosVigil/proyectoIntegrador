@@ -76,6 +76,14 @@ hr {
   color: red;
 }
 
+.avatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  box-shadow: 0 0 7px 0 #00B7FF;
+  
+}
+
 
 /*====== Main Header ======*/
 .main-header {

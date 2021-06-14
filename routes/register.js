@@ -28,10 +28,10 @@ router.get('/edit/:userId', registerController.edit);
 router.post('/edit', upload.single('avatar'), registerController.update);
 
 
-router.get('/', registerController.index);
+//router.get('/', registerController.index);
 router.post('/',  registerController.store);
 
-router.get('/edit/:userId', registerController.edit);
+//router.get('/edit/:userId', registerController.edit);
 router.post('/edit',  registerController.update);
 
 module.exports = router;

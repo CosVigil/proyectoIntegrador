@@ -31,19 +31,19 @@
         </p>
         <% } %>
 
-		<img class= "avatar" src="../public/images/avatars/<%=user.avatar%>" alt="">
+		<img class= "avatar" src="/images/avatars/<%=user.avatar%>" alt="">
     <form action="/register/edit" method="POST" enctype="multipart/form-data">
 		<div>
-			<input type="text" name="nombre" value="<%= user.name %>" placeholder="Nombre de usuario">
+			<input type="text" name="nombre" value="<%= user.nombre %>" placeholder="Nombre de usuario">
 		</div>
 		<div>
-			<input type="text" name="apellido" placeholder="Apellido"> value="<%= user.email %>"disabled 
+			<input type="text" name="apellido" placeholder="Apellido" value="<%= user.apellido %>">  
 		</div>
 		<div>
-			<input type="int" name="dni" value="" placeholder="DNI">
+			<input type="int" name="dni" value="<%= user.dni %>" placeholder="DNI">
 		</div>
 		<div>
-			<input type="text" name="email" value="" placeholder="email">
+			<input type="text" name="email" value="<%= user.email %>" placeholder="email" disabled>
 		</div>
 		<div>
 			<input type="password" name="password" value="" placeholder="password">
@@ -52,8 +52,8 @@
 		<div>
 			<input type="date" name="birthDate" value="" placeholder="Fecha de nacimiento">
 		</div>
-		nueva imagen de perfil
-		<input type="file" name="avatar">
+		<div> nueva imagen de perfil </div>
+		<input type="file" name="avatar" value="">
 		<div >
 
 		</div>
