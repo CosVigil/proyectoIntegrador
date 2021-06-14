@@ -43,22 +43,22 @@ const chocolateController = {
         //control de acceso
          
         if(req.session.user ==undefined){
-            return res.redirect("/register");
+            return res.redirect("/login");
         } else{
-           
+            db.User.findAll()
+            .then( data => {
+                return res.render('product-add', {users:data});
+            })
+            .catch(error => {
+                console.log(error);
+            })
         }
 
         //mostrar formulario de carga de nuevos chocolates
         //return res.render('product-add')
 
             
-            db.User.findAll()
-                .then( data => {
-                    return res.render('product-add', {users:data});
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+          
 
 
     },
@@ -71,9 +71,9 @@ const chocolateController = {
         //2)crear nuevo producto
         let chocolate = {
             productName: datas.productName,
-            image: datas.image,
+            image: req.file.filename,
             descripción: datas.descripción,
-            userId: datas.userId,
+            userId: req.session.user.id,
         }
        //return res.send(req.body)
        
