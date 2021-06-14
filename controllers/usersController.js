@@ -3,9 +3,6 @@ const usersController = {
         return res.render('profile')
     },
    
-     profileEdit: function (req, res){
-        return res.render('profile-edit')
-     }
 
 }
 
