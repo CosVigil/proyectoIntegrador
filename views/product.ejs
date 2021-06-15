@@ -44,48 +44,20 @@
 
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<article>
-							<img src="/images/products/lali.jpg" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/users">Lali Espósito </a> </strong>
-								Pésimo producto, muy caro para la basura que ofrecen</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/products/peter.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users">Peter Lanzani </a> </strong>
-									Haganme una radiografia, estoy seguro que mi panza esta ahora llena de amor... Felicidad!!!!</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/products/china.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users">Eugenia Suarez </a> </strong>
-									Deberian dedicarse a otra cosa, farsantes!!!!!
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/products/nico.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users">Nico Riera </a> </strong>
-									Escuchame, esto es bacansisimo</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/products/gaston.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users">Gatón Dalmau </a> </strong>
-									Que rica esta vaina, me enamore</p>
-							</div>
-						</article>
+                       
+						<% for (let i=0; i<product.comments.length; i++ ) { %>
+                            <article>
+								
+								<div class="data">
+									<p class="user">
+									<strong> <a href="/users"> <%= product.comments[i].user.nombre %> <%= product.comments[i].user.apellido %></a> </strong>
+									<%= product.comments[i].text %>  </p>
+								</div>
+							</article>
+						<% } %> 
 
+						
+						
 					</section>
 					<form class="form" action="/chocolates" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">

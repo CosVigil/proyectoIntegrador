@@ -12,10 +12,13 @@ const chocolateController = {
         db.Product.findByPk(id,{
             include : [
                 {association : 'user'},
-                //{association : 'comment'}
-                
+                {association : 'comments', 
+                include: [{ 
+                    association: 'user'
+                } ]
+            }],
+                order: [['comments', 'id', 'desc']]
             
-            ]
         })
           .then(data => {
               return res.render('product', { product:data } )
