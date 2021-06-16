@@ -49,13 +49,17 @@ const chocolateController = {
         if(req.session.user ==undefined){
             return res.redirect("/login");
         } else{
-            db.User.findAll()
+            db.Product.findAll({                
+                order: [['id', 'desc']]
+        })
             .then( data => {
                 return res.render('product-add', {users:data});
             })
             .catch(error => {
                 console.log(error);
-            })
+            }
+            
+            )
         }
 
         //mostrar formulario de carga de nuevos chocolates

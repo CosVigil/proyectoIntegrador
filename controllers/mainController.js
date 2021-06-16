@@ -2,7 +2,10 @@ const db = require ('../database/models');
 
 let mainController = {
     index: function (req, res){
-        db.Product.findAll()
+        db.Product.findAll(
+            {order: [['id', 'desc']]}
+
+        )
           .then( data => {
               return res.render ('index', {products: data})
 
