@@ -49,9 +49,7 @@ const chocolateController = {
         if(req.session.user ==undefined){
             return res.redirect("/login");
         } else{
-            db.Product.findAll({                
-                order: [['id', 'desc']]
-        })
+            db.User.findAll()
             .then( data => {
                 return res.render('product-add', {users:data});
             })
