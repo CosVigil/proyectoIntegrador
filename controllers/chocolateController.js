@@ -32,6 +32,10 @@ const chocolateController = {
         let data = req.query.search;
 
         db.Product.findAll({
+
+            include: [{association: "user"}, 
+            {association: "comments"}],
+
             where: [
                 {productName: {[op.like]: '%'+data+'%'}}
             
