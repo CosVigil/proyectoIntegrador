@@ -99,6 +99,64 @@ const chocolateController = {
         
     },
 
+    edit: function(req, res){
+        //control de acceso
+         
+        if(req.session.user ==undefined){
+            return res.redirect("/login");
+        } else{
+            db.Product.findByPk(req.params.id)
+            .then( data => {
+                return res.render('product-edit', {product:data});
+            })
+            .catch(error => {
+                console.log(error);
+            }
+            
+            )
+        }
+
+        //mostrar formulario de carga de nuevos chocolates
+        //return res.render('product-add')
+
+            
+          
+
+
+    },
+
+    update: function(req, res){
+        //metodo para guardar nuevo producto
+        //1)obtener datos del formulario
+        let datas = req.body;
+        //return res.send(datas);
+
+        //2)crear nuevo producto
+        let chocolate = {
+            productName: datas.productName,
+            image: req.file.filename,
+            descripción: datas.descripción,
+            userId: req.session.user.id,
+        }
+       //return res.send(req.body)
+       
+
+        //3)guardar producto
+        db.Product.create(chocolate)
+        .then (chocolate =>{
+       //4)redireccion
+            return res.redirect('/');
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+
+
+        
+    },
+
+
     /*new: function(req, res){
     //mostrará los últimos productos agregados de forma descendente
     db.Product.findAll({

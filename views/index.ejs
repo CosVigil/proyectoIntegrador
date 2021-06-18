@@ -18,7 +18,12 @@
 
 <body>
 
+
+	<% if(locals.user){ %>
+	<%- include("./partials/headerLogueado") %>
+	<%} else {%>
 	<%- include("./partials/header") %>
+	<%}%>
 
 
 
@@ -28,24 +33,24 @@
 	</div>
 
 	<% console.log('En la vista') %>
-    
+
 
 	<% if(locals.user){ %>
-		<img class= "avatar" src="/images/avatars/<%=user.avatar %>" alt="">
-      <h2>Hola: <%= locals.user.nombre %> </h2>
-    <%}%>
+	<img class="avatar" src="/images/avatars/<%=user.avatar %>" alt="">
+	<h2>Hola: <%= locals.user.nombre %> </h2>
+	<%}%>
 	
 	
     
 	<% if(locals.user){ %>
-		<p><a href="/register/edit/<%=user.id%>">Editar perfil</a></p>
-      <form action="/login/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
-    <%} else {%>
-      <a href="/login">Ingresar</a>
-      <a href="/register">Registrate</a>
-    <%}%>
+	<p><a href="/register/edit/<%=user.id%>">Editar perfil</a></p>
+	<form action="/login/logout" method="POST">
+		<button type="submit">Logout</button>
+	</form>
+	<%} else {%>
+	<a href="/login">Ingresar</a>
+	<a href="/register">Registrate</a>
+	<%}%>
 
 	<!--BUSCADOR-->
 	<h2>Buscar chocolates</h2>
@@ -66,25 +71,34 @@
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<% for(let i=0; i<products.length; i++){ %>
-					<a href="/chocolates/id/<%= products[i].id%>">
-						<figure class="product-box_image">
-							<img src="/images/products/<%= products[i].image %>" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= products[i].productName %></h2>
-						</article>
-					</a>
-					<% } %>
+	
 
-				</section>
-			</div>
+      <% for (const product of products) { %>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <section class="product-box">
+          <a href="/chocolates/id/<%= product.id %> ">
+            <figure class="product-box_image">
+              <img src= "/images/products/<%=product.image %>" alt="">
+            </figure>
+            <article class="product-box_data">
+              <p><a href="/users/id/<%= product.user.id %> ">Añadido por <%= product.user.nombre + ' ' + product.user.apellido%> </a></p>
+            </article>
+          </a>
+        </section>
+      </div>
+      <%}%>
+     </div>
+   </div>
 
 
 
-		</div>
+
+
+
+
+
+
+	</div>
 	</div>
 	<!-- /Novedades -->
 	<!-- Más comentados -->

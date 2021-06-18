@@ -3,7 +3,21 @@ const db = require ('../database/models');
 let mainController = {
     index: function (req, res){
         db.Product.findAll(
-            {order: [['id', 'desc']]}
+            {order: [['id', 'desc']], 
+                include: [{
+                    association:"user"
+            }]
+        
+        
+        
+        
+        
+        }
+
+            
+
+
+
 
         )
           .then( data => {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+
+	<title>Chocolate el mejor</title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<%- include("./partials/headerLogueado.ejs")%>
+
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar Productos</h2>
+				<form action="/chocolates/store" method="POST" enctype="multipart/form-data"> 
+			
+					<input type="text" name="productName" value="<%= product.productName %>">
+					<input type="file" name="image" value="" placeholder="image">
+					<input type="text"  name="descripción" value="<%= product.text %>">	
+					
+					<button type="submit">Editar producto</button>
+				</form>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+
+			
+
+
+	<!-- footer -->
+	<%- include("./partials/footer") %> 
+	<!-- /footer -->
+</body>
+
+</html>

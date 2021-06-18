@@ -24,6 +24,7 @@ let path = require('path');
 
 router.get ('/', chocolateController.index);
 router.get ('/id/:id', chocolateController.show);
+router.get ('/edit/:id', chocolateController.edit);
 router.get ('/results', chocolateController.search);
 router.get('/search', chocolateController.search);
 router.get('/create', chocolateController.create);

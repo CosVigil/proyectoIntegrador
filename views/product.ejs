@@ -16,8 +16,11 @@
 </head>
 <body>
 	<!-- Header -->
-	<%- include("./partials/header") %> 
-	<!-- /Header -->
+	<% if(locals.user){ %>
+		<%- include("./partials/headerLogueado") %>
+		<%} else {%>
+		<%- include("./partials/header") %>
+		<%}%>
 
 	<!-- product detail -->
 
@@ -32,11 +35,19 @@
 					<figure class="product-box_image">
 						<img src="/images/products/<%= product.image %>" alt="cafetera moulinex">
 					</figure>
-					<form action="/chocolates/delete/<%= product.id %>"   method="POST">
-                        <button type="submit">Borrar Producto</button>
-					</form>
-					<button>Editar posteo</button>
-					<p> <a href="/users">Usuario: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
+
+					<% if(locals.user.id == product.user.id){ %>
+						 
+						<form action="/chocolates/delete/<%= product.id %> "method="POST">
+							<button type="submit">Borrar Producto</button>
+						</form>
+						<a href="/chocolates/edit/<%= product.id %> ">Editar posteo</a>
+				
+					
+					
+						<%}%>
+				
+					<p> <a href="/users/id/<%= product.user.id %> ">Usuario: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
                    
 			
 				</article>
@@ -50,7 +61,7 @@
 								
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users"> <%= product.comments[i].user.nombre %> <%= product.comments[i].user.apellido %></a> </strong>
+									<strong> <a href="/users/id/<%= product.comments[i].user.id %>"> <%= product.comments[i].user.nombre %> <%= product.comments[i].user.apellido %></a> </strong>
 									<%= product.comments[i].text %>  </p>
 								</div>
 							</article>
