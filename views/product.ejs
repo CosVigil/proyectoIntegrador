@@ -45,11 +45,15 @@
 				
 					
 					
-						<%}%>
+						<%} else{ %>
+							<% } %>
+							
+
 				
 					<p> <a href="/users/id/<%= product.user.id %> ">Usuario: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
                    
-			
+					
+
 				</article>
 
 
@@ -67,7 +71,7 @@
 							</article>
 						<% } %> 
 
-						
+
 						
 					</section>
 					<form class="form" action="/chocolates" method="get">
@@ -75,10 +79,11 @@
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
-				</div>
-			</div>
+				</div> 							
+			</div> 
 		</div>
-	</div>
+		
+	</div> 
 	<!-- /product detail -->
 
 	<!-- footer -->
