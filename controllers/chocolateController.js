@@ -197,6 +197,23 @@ const chocolateController = {
 
     },
 
+    editProduct: function(req, res){
+        
+        let productId=req.params.productId;   
+        //evitar que el usuario cambie el id en la url
+    if(productId != req.session.products.id){
+        //redireccionar a la ruta del usuario logeado
+        return res.redirect(`/chocolates/productEdit/${req.session.products.id}`)
+
+    }else{
+
+    db.Product.findByPk(productId)
+    .then (function(products){
+        return res.render('productEdit' , {productEdit: products})
+    })
+    .catch(e => {console.log(e)})
+    } },
+
     /*recomended: function(req, res){
         // Deberá mostrar las películas cuyo rating sea mayor o igual a 8. Cada título de película deberá ser un hipervínculo para ver el detalle de la misma.
 
