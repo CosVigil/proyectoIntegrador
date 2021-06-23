@@ -80,6 +80,11 @@
             <figure class="product-box_image">
               <img src= "/images/products/<%=product.image %>" alt="">
             </figure>
+			
+			<article> 
+				<a href="/chocolates"><%=product.productName  %> </a>
+			</article>
+			
             <article class="product-box_data">
               <p><a href="/users/id/<%= product.user.id %> ">Añadido por <%= product.user.nombre + ' ' + product.user.apellido%> </a></p>
             </article>

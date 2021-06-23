@@ -38,15 +38,16 @@
 			
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/chocolates/search">
+					<a href="/chocolates/id/<%= product[i].id %>">
 						<figure class="product-box_image">
 							<img src="/images/products/<%= product[i].image %> " alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= product[i].nombre %> </h2>
-							
-							
+							<h2><%= product[i].productName %> </h2>
 						</article>
+
+						
+						
 					</a>
 				</section>
 			</div>

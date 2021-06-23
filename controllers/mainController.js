@@ -7,18 +7,8 @@ let mainController = {
                 include: [{
                     association:"user"
             }]
-        
-        
-        
-        
-        
+
         }
-
-            
-
-
-
-
         )
           .then( data => {
               return res.render ('index', {products: data})
