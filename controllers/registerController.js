@@ -22,15 +22,21 @@ let registerController = {
             errors.message = "El email es obligatorio";
             res.locals.errors = errors;
             return res.render('register')
+        //} if (req.body.password.length < 4){
+            errors.message = "Debe tener al menos 4 caracteres";
+            res.locals.error = errors;
+            return res.render('register')
         //Chequear que la contraseña no esté vacía    
         } else if(req.body.password == ""){
             errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             return res.render('register')
+        
+        }
             
         
             //Una vez que tenemos la información completa entonces podemos pasar a chequear con base de datos
-        } else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype
+         else if (req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpg' && req.file.mimetype
         !== 'image/jpeg'){
         errors.message = "El archivo debe ser jpg o png";
         res.locals.error = errors;
