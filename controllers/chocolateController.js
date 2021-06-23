@@ -41,7 +41,7 @@ const chocolateController = {
             
         ]})
         .then(data => {
-            return res.render('index', {products: data});
+            return res.render('search-results', {product: data});
         })
         .catch(error => {
             console.log(error);

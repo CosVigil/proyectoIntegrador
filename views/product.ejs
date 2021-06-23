@@ -36,7 +36,7 @@
 						<img src="/images/products/<%= product.image %>" alt="cafetera moulinex">
 					</figure>
 
-					<% if(locals.user.id == product.user.id){ %>
+					<% if(locals.user && locals.user.id == product.user.id){ %>
 						 
 						<form action="/chocolates/delete/<%= product.id %> "method="POST">
 							<button type="submit">Borrar Producto</button>
@@ -45,8 +45,7 @@
 				
 					
 					
-						<%} else{ %>
-							<% } %>
+						<%} %>
 							
 
 				

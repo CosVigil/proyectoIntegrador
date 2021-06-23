@@ -25,74 +25,35 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda (4)</h2>
+				<% if (product.length == 0){%>
+					<h2>No hay resultados</h2>
+					<% } else { %> 
+				<h2 class="products-title">Resultados de búsqueda</h2>
+				<% } %> 
 			</div>
 			<!-- Show the "ultimos" products -->
+
+			<% for(let i=0; i<product.length; i++) {%> 
 			
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				
-			</div>
-			<!-- Show the "ultimos" products -->
+			
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/chocolates">
+					<a href="/chocolates/search">
 						<figure class="product-box_image">
-							<img src="/images/products/chocolateN.jpg" alt="cafetera moulinex">
+							<img src="/images/products/<%= product[i].image %> " alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2>Chocolate negro</h2>
-							<p>No hay otro como el Águila</p>
-							<p>Comentarios: 26</p>
+							<h2><%= product[i].nombre %> </h2>
+							
+							
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/chocolates">
-						<figure class="product-box_image">
-							<img src="/images/products/chocolateB.jpg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Chocolate blanco</h2>
-							<p>De los blancos, el mejor</p>
-							<p>Comentarios: 25</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/chocolates">
-						<figure class="product-box_image">
-							<img src="/images/products/chocolateR.jpg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Chocolate con rocklets</h2>
-							<p>Nunca vas a probar nada igual</p>
-							<p>Comentarios: 14</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/chocolates">
-						<figure class="product-box_image">
-							<img src="/images/products/chocolateM.jpg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Chocolate con menta</h2>
-							<p>Si el chocolate es rico, la menta lo hace único</p>
-							<p>Comentarios: 18</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% } %> 
+			
+			
+			
 		</div>
 	</div>
 
