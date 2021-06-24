@@ -33,9 +33,8 @@ router.post('/delete/:id', chocolateController.destroy);
 //router.get('/new', chocolateController.new);
 //router.get('/recomended', chocolateController.recomended);
 
-//router.get('/editProduct/:id', chocolateController.editProduct)
-
-//router.post('/editProduct', upload.single('image'), chocolateController.editForm);
+router.get('/editProduct/:id', chocolateController.editProduct)
+router.post('/editProduct/:id', upload.single('image'), chocolateController.editForm);
 
 
 

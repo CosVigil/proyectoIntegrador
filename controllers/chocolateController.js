@@ -127,17 +127,67 @@ const chocolateController = {
     },
 
     editProduct: function(req,res){
-      let data= req.body;
-      if (req.file != undefined){
-          let chocolate ={
-              productName: data.productName,
+        //MOstrar el formulario de edición con los datos del producto a editar
+      db.Product.findByPk(req.params.id, {
 
-          }
-      } else {
-          let chocolate = {
-              productName: data.productName
-          }
-      }
+      })
+             .then( data => {
+                 return res.render('productEdit', {product:data});
+             })
+             .catch(error => {
+                 console.log(error);
+             }
+
+             )
+
+    },
+    editForm: function(req, res){
+        //Qué voy a tomar para editar los datos.
+         db.Product.findByPk(req.params.id, {
+
+          })
+            //Qué voy a tomar para editar los datos.
+    
+             .then( product => {
+                //return res.send(product)
+                let pdtoAeditar = {
+                    productName: req.body.productName,
+                    imagen: '',
+                }
+                 
+                if(req.body.productName == ''){
+                    pdtoAeditar.productName = product.productName;
+                } else {
+                    pdtoAeditar.productName = req.body.productName;
+                }
+                //Si vino imágen en el form => uso esa imagen
+                if(req.file == undefined){
+                    pdtoAeditar.imagen = product.imagen;
+                } else{
+                    pdtoAeditar.imagen = req.file.filename
+                }
+                //else dejo la que está en la base: prodcut.image
+    
+                db.Product.editForm(pdtoAeditar, {
+                    where:{
+                        id: req.params.id
+                    }
+                })
+                .then(function(id){
+
+                    return res.redirect (`/product/id/${product.id}`)
+                 //A donde redirigir una vez que le producto se actualizó.        
+                })
+                .catch( e => {console.log(e);} )
+    
+             })
+             .catch( error =>{
+                 console.log (error)
+             }
+                )
+    
+
+         
     },
 
     update: function(req, res){
