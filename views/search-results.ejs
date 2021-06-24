@@ -18,7 +18,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include("./partials/header") %> 
+	<% if(locals.user){ %>
+		<%- include("./partials/headerLogueado") %>
+		<%} else {%>
+		<%- include("./partials/header") %>
+		<%}%>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -45,7 +49,6 @@
 						<article class="product-box_data">
 							<h2><%= product[i].productName %> </h2>
 						</article>
-
 						
 						
 					</a>

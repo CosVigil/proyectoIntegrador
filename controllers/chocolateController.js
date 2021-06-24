@@ -111,7 +111,7 @@ const chocolateController = {
         } else{
             db.Product.findByPk(req.params.id)
             .then( data => {
-                return res.render('product-edit', {product:data});
+                return res.render('productEdit', {product:data});
             })
             .catch(error => {
                 console.log(error);
@@ -119,14 +119,25 @@ const chocolateController = {
             
             )
         }
+        
 
         //mostrar formulario de carga de nuevos chocolates
-        //return res.render('product-add')
+        //return res.render('product-add'
 
-            
-          
+    },
 
+    editProduct: function(req,res){
+      let data= req.body;
+      if (req.file != undefined){
+          let chocolate ={
+              productName: data.productName,
 
+          }
+      } else {
+          let chocolate = {
+              productName: data.productName
+          }
+      }
     },
 
     update: function(req, res){
@@ -199,22 +210,7 @@ const chocolateController = {
 
     
 
-    editProduct: function(req, res){
-      let fila = req.params.id;
-      let data = req.body;
-
-      db.Product.update({
-        productName: data.ndj,
-        image: data.url,
-       
-      },{where: {id:fila}})
-
-      .then( () => {
-        return res.redirect('/');
-      })
-
-
-    },
+   
 
 
 

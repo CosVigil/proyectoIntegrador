@@ -42,7 +42,7 @@
 							<button type="submit">Borrar Producto</button>
 						</form>
 						 
-						<form action="/chocolates/editProduct/<%= product.id %> "method="POST">
+						<form action="/chocolates/editProduct/<%= product.id %> "method="GET">
 							<button type="submit">Editar Producto</button>
 						</form>
 
@@ -55,7 +55,7 @@
 							
 
 				
-					<p> <a href="/users/id/<%= product.user.id %> ">Usuario: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
+					<p> <a href="/users/id/<%= product.user.id %> ">Añadido por: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
                    
 					
 
