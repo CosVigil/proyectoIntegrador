@@ -55,6 +55,10 @@ User.associate = function(models){
         as:'products',
         foreignKey: 'userId'
     })
+    User.hasMany(models.Comment,{
+        as:'ComentarioDelUsuario',
+        foreignKey: 'userId'
+    })
 }
 
 return User;

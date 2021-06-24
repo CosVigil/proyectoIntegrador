@@ -8,8 +8,9 @@ const usersController = {
 
                 include: [{
                     association:"products", 
-                }]
+                    include: [{ association: "comments" },]
 
+                }, { association: "ComentarioDelUsuario" }]
         })
 
 
