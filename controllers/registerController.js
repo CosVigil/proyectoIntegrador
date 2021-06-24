@@ -22,9 +22,9 @@ let registerController = {
             errors.message = "El email es obligatorio";
             res.locals.errors = errors;
             return res.render('register')
-        //} if (req.body.password.length < 4){
-            errors.message = "Debe tener al menos 4 caracteres";
-            res.locals.error = errors;
+        } if (req.body.password.length < 4){
+            errors.message = "La contraseña debe tener al menos 4 caracteres";
+            res.locals.errors = errors;
             return res.render('register')
         //Chequear que la contraseña no esté vacía    
         } else if(req.body.password == ""){

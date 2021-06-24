@@ -29,9 +29,13 @@
 				<h2 class="products-title">Agregar productos</h2>
 				<form action="/chocolates/store" method="POST" enctype="multipart/form-data"> 
 			
+					<div>
 					<input type="text" name="productName" value="" placeholder="productName">
+				</div>
+
+				<div>
 					<input type="file" name="image" value="" placeholder="image">
-					<input type="text"  name="descripción" value="" placeholder="descripción">	
+				</div>
 					
 					<button type="submit">Agregar producto</button>
 				</form>

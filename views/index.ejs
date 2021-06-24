@@ -37,39 +37,36 @@
 
 	<% if(locals.user){ %>
 	<img class="avatar" src="/images/avatars/<%=user.avatar %>" alt="">
-	<h2>Hola: <%= locals.user.nombre %> </h2>
+	<h2 class="saludo">Hola <%= locals.user.nombre %> </h2>
 	<%}%>
 	
 	
     
 	<% if(locals.user){ %>
-	<p><a href="/register/edit/<%=user.id%>">Editar perfil</a></p>
+	<p class="editarPerfil"><a href="/register/edit/<%=user.id%>">Editar perfil</a></p>
 	<form action="/login/logout" method="POST">
-		<button type="submit">Logout</button>
+		<button class="boton" type="submit">Logout</button>
 	</form>
 	<%} else {%>
-	<a href="/login">Ingresar</a>
-	<a href="/register">Registrate</a>
+	
 	<%}%>
 
 	<!--BUSCADOR-->
-	<h2>Buscar chocolates</h2>
-	<form action="/chocolates/search" method="GET" class="">
+	<h2 class="buscar">Buscar chocolates</h2>
+	<form action="/chocolates/search" method="GET" class="search-form">
 		<input type="text" name="search" value="" placeholder="Buscar chocolates">
 		<button type="submit">Buscar</button>
 	</form>
 	<!-- /Banner -->
 
 <div class="nuevoCh">
-	<a href="/chocolates/create">Nuevo chocolate</a>
+	<a href="/chocolates/create">Añade un nuevo chocolate</a>
 	
 </div>
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
-			</div>
+		
 			<!-- Show the "ultimos" products -->
 	
 
@@ -81,7 +78,7 @@
               <img src= "/images/products/<%=product.image %>" alt="">
             </figure>
 			
-			<article> 
+			<article class="nuevoCh"> 
 				<a href="/chocolates"><%=product.productName  %> </a>
 			</article>
 			
