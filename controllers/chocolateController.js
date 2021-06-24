@@ -131,8 +131,8 @@ const chocolateController = {
       db.Product.findByPk(req.params.id, {
 
       })
-             .then( data => {
-                 return res.render('productEdit', {product:data});
+             .then( product => {
+                 return res.render('productEdit', {product:product});
              })
              .catch(error => {
                  console.log(error);
@@ -152,7 +152,7 @@ const chocolateController = {
                 //return res.send(product)
                 let pdtoAeditar = {
                     productName: req.body.productName,
-                    imagen: '',
+                    image: '',
                 }
                  
                 if(req.body.productName == ''){
@@ -162,20 +162,21 @@ const chocolateController = {
                 }
                 //Si vino imágen en el form => uso esa imagen
                 if(req.file == undefined){
-                    pdtoAeditar.imagen = product.imagen;
+                    pdtoAeditar.image = product.image;
                 } else{
-                    pdtoAeditar.imagen = req.file.filename
+                    pdtoAeditar.image = req.file.filename
                 }
                 //else dejo la que está en la base: prodcut.image
     
-                db.Product.editForm(pdtoAeditar, {
+                db.Product.update(pdtoAeditar, {
                     where:{
                         id: req.params.id
                     }
                 })
                 .then(function(id){
 
-                    return res.redirect (`/product/id/${product.id}`)
+                
+                    return res.redirect('/'); 
                  //A donde redirigir una vez que le producto se actualizó.        
                 })
                 .catch( e => {console.log(e);} )
