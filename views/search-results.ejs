@@ -40,21 +40,26 @@
 			<% for(let i=0; i<product.length; i++) {%> 
 			
 			
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/chocolates/id/<%= product[i].id %>">
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+					  <a href="/chocolates/id/<%= product[i].id %> ">
 						<figure class="product-box_image">
-							<img src="/images/products/<%= product[i].image %> " alt="cafetera moulinex">
+						  <img src= "/images/products/<%=product[i].image %>" alt="">
 						</figure>
-						<article class="product-box_data">
-							<h2><%= product[i].productName %> </h2>
+						
+						<article class="nuevoCh"> 
+							<a href="/chocolates"><%=product[i].productName  %> </a>
 						</article>
 						
-						
-					</a>
-				</section>
-			</div>
+						<article class="product-box_data">
+						  <p><a href="/users/id/<%= product[i].user.id %> ">Añadido por <%= product[i].user.nombre + ' ' + product[i].user.apellido%> </a></p>
+						</article>
+					  </a>
+					</section>
+				  </div>
 			<% } %> 
+
+
 			
 			
 			

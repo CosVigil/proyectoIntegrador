@@ -1,3 +1,4 @@
+const session = require('express-session');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 
@@ -208,13 +209,39 @@ const chocolateController = {
 
     },
 
+    comentar: function(req, res){
+
+        db.Product.findByPk(req.params.id, {
+        })
+            .then( product => {
+                console.log(product);
+                let errors={}
+                if(req.body.comentario == ""){
+                    errors.message = "Es necesario un comentario";
+                    res.locals.errors = errors;
+                    return res.render('product')
+                } else{
+                let comentario = {
+                    text: req.body.comentario,          
+                    userId: req.body.idUsuario,
+                    productId: req.body.idProducto, //pasar id del producto
+                }
+                db.Comment.create(comentario)
+                    .then( (nuevoComentario) => {
+                        return res.redirect(`/chocolates/id/${product.id}`); 
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })}
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    },
+
     
-
-   
-
-
-
-
     /*recomended: function(req, res){
         // Deberá mostrar las películas cuyo rating sea mayor o igual a 8. Cada título de película deberá ser un hipervínculo para ver el detalle de la misma.
 
