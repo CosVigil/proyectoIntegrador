@@ -43,7 +43,7 @@ let cols = {
 
 
 let config ={
-    table: 'users',
+    tableName: 'users',
     timestamps: true,
 
 }

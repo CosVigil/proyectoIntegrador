@@ -23,15 +23,14 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
+	
 			<div class="col-12">
 				<h2 class="products-title">Editar mi producto</h2>
-				<form action="/chocolates/editProduct" method="POST" enctype="multipart/form-data"> 
+				<form action="/chocolates/editProduct/<%= product.id %> " method="POST" enctype="multipart/form-data"> 
 			
 					<input type="text" name="productName" value="<%= product.productName %>">
 					<input type="file" name="image" value="" placeholder="image">
-					<input type="text"  name="descripción" value="<%= product.text %>">	
+					
 					
 					<button type="submit">Editar producto</button>
 				</form>
