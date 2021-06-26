@@ -21,9 +21,13 @@
 	<%- include("./partials/header") %> 
 	<!-- /Header -->
 
-	<H1>Registarte</H1>
+	<H1 class="ingresar">Registrate</H1>
+	<div class="home">
     <a href="/">Home</a>
+</div>
+<div class="registrate">
     <a href="/login">Ingresar</a>
+</div>
 
     <% if(locals.errors){ %>
         <p class="error">
@@ -31,7 +35,7 @@
         </p>
         <% } %>
 
-    <form action="/register" method="POST" enctype="multipart/form-data">
+    <form action="/register" method="POST" enctype="multipart/form-data" class="ingresar">
 		<div>
 			<input type="text" name="nombre" value="" placeholder="Nombre de usuario">
 		</div>
@@ -51,7 +55,9 @@
 		<div>
 			<input type="date" name="birthDate" value="" placeholder="Fecha de nacimiento">
 		</div>
+	
 		<input type="file" name="avatar">
+	
 		<div >
 
 		</div>

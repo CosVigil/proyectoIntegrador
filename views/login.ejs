@@ -22,20 +22,24 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-    <h1>Ingresar</h1>
-    <a href="/">Home</a>
+    <h1 class="ingresar">Ingresar</h1>
+  <div class="home">  
+      <a  href="/">Home</a> 
+    </div>
+    <div class="registrate">
     <a href="/register">Registrate</a>
+</div>
     <% if(locals.errors){ %>
         <p class="error"><%= locals.errors.message %> </p>
     <% } %>  
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" class="ingresar">
         <p>
             <input type="text" name="email" value="" placeholder="email">
         </p>
         <p>
             <input type="password" name="password" value="" placeholder="contraseña">
         </p>
-        <p>
+        <p class="recordame">
             <input type="checkbox" name="rememberme" value="ok">
             Recordame
         </p>

@@ -31,7 +31,7 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					
-					<p>Detalles del chocolate <%= product.productName  %> </p>
+					<p class="detalles">Detalles del chocolate <%= product.productName  %> </p>
 					<figure class="product-box_image">
 						<img src="/images/products/<%= product.image %>" alt="cafetera moulinex">
 					</figure>
@@ -39,11 +39,11 @@
 					<% if(locals.user && locals.user.id == product.user.id){ %>
 						 
 						<form action="/chocolates/delete/<%= product.id %> "method="POST">
-							<button type="submit">Borrar Producto</button>
+							<button type="submit" class="boton">Borrar Producto</button>
 						</form>
 						 
 						<form action="/chocolates/editProduct/<%= product.id %> "method="GET">
-							<button type="submit">Editar Producto</button>
+							<button type="submit" class="boton">Editar Producto</button>
 						</form>
 
 
@@ -55,7 +55,7 @@
 							
 
 				
-					<p> <a href="/users/id/<%= product.user.id %> ">Añadido por: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
+					<p class="añadido"> <a href="/users/id/<%= product.user.id %> ">Añadido por: <%=product.user.nombre  %> <%=product.user.apellido  %></a>  </p>
                    
 					
 
