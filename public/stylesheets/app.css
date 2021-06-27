@@ -575,6 +575,7 @@ border: 1px solid transparent;
 .error{
   color: rgb(209, 0, 0);
   font-size: 1.4em;
+  text-align: center;
 }
 
 textarea.form-input {
